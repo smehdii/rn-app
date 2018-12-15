@@ -38,7 +38,7 @@ export default class App extends React.Component {
             animated
             showHideTransition={"slide"}
           />
-          <MainMenu />
+          <MainMenu onPlayGame={_ => this.toggleGame(true)} />
         </View>
       );
     }
