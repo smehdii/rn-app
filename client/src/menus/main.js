@@ -1,20 +1,30 @@
 import React, { PureComponent } from "react";
-import { ScrollView, Text, Platform } from "react-native";
-import Title from "./title";
-import Button from "./button";
+import {
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+  Linking,
+  Platform
+} from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
-import Item from "./item";
+import Title from "./title";
 import Heading from "./heading";
+import Button from "./button";
+import Item from "./item";
+
 export default class MainMenu extends PureComponent {
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={styles.contentContainer}
+      >
         <Title />
-        <Button onPlayGame={this.props.onPlayGame}>Play Game</Button>
+        <Button onPress={this.props.onPlayGame}>Play Game</Button>
         <Heading>{`Made With ${
           Platform.OS == "ios" ? "🍌🍌🍌" : ".."
         }`}</Heading>
-
         <Item
           onPress={_ =>
             Linking.openURL(
@@ -35,6 +45,7 @@ export default class MainMenu extends PureComponent {
         >
           Spriters Resource
         </Item>
+        <Heading>Copyright Notice</Heading>
         <Item>
           All content, artwork, sounds, characters and graphics are the property
           of Nintendo of America Inc, its affiliates and/or subsidiaries.
@@ -47,5 +58,10 @@ export default class MainMenu extends PureComponent {
 const styles = EStyleSheet.create({
   container: {
     backgroundColor: "$MenuBackgroundColor"
+  },
+  contentContainer: {
+    maxWidth: "$MenuMaxWidth",
+    alignSelf: "center",
+    alignItems: "center"
   }
 });
