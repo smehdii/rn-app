@@ -1,7 +1,6 @@
 import React from "react";
 import { Platform, StatusBar, StyleSheet, View } from "react-native";
 import { AppLoading, Asset, Font, Icon } from "expo";
-import AppNavigator from "./navigation/AppNavigator";
 import EStyleSheet from "react-native-extended-stylesheet";
 import MainMenu from "./src/menus/main";
 
@@ -56,7 +55,7 @@ export default class App extends React.Component {
         ...Icon.Ionicons.font,
         // We include SpaceMono because we use it in HomeScreen.js. Feel free
         // to remove this if you are not using it in your app
-        "space-mono": require("./assets/fonts/SpaceMono-Regular.ttf")
+        ArcadeClassic: require("./assets/fonts/ArcadeClassic.ttf")
       })
     ]);
   };
@@ -74,7 +73,7 @@ export default class App extends React.Component {
 
 const defaultTheme = {
   $MenuMaxWidth: 500,
-  $MenuFont: Platform.OS === "ios" ? "System" : "normal",
+  $MenuFont: "ArcadeClassic",
   $MenuBackgroundColor: "black",
   $MenuPrimaryColor: "#2068E3",
   $MenuSecondaryColor: "#00FFFF" //"#25D9D9"
